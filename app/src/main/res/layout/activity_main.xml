@@ -1,18 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
+    <!--edit text for adding course name-->
+    <EditText
+        android:id="@+id/idEdtCourseName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toStartOf="@id/idBtnSave"
+        android:hint="@string/enter_course_name" />
+
+    <!--edit text for adding course description-->
+    <EditText
+        android:id="@+id/idEdtCourseDescription"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_below="@id/idEdtCourseName"
+        android:layout_marginEnd="4dp"
+        android:layout_toStartOf="@id/idBtnAdd"
+        android:hint="@string/enter_course_description" />
+
+    <!--button for adding data to recycler view-->
+    <Button
+        android:id="@+id/idBtnAdd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_below="@id/idEdtCourseName"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="10dp"
+        android:text="@string/add" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!--button for saving data to shared prefs-->
+    <Button
+        android:id="@+id/idBtnSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="10dp"
+        android:text="@string/save" />
+
+    <!--recycler view to display our data-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/idRVCourses"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/idEdtCourseDescription" />
+
+</RelativeLayout>
